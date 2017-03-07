@@ -314,28 +314,33 @@
         // TODO
       }
 
-      function declineCookie() {
-        removeBanner();
-        // TODO remove event handler
-      }
-
       function acceptCookie() {
         trackVisit();
         removeBanner();
       }
 
-      document.querySelector('#decline-cookie').addEventListener('click', declineCookie);
+      function linkClickedHandler(a) {
+        return event => {
+          event.preventDefault();
+          if (trackVisit()) {
+            showSpinner();
+            window.setTimeout(() => { document.location = a.href }, 1500);
+          } else {
+            document.location = a.href;
+          }
+        };
+      }
+
+      const decline_button = document.querySelector('#decline-cookie');
+
+      decline_button.addEventListener('click', removeBanner);
       document.querySelector('#accept-cookie').addEventListener('click', acceptCookie);
       document.querySelectorAll('a').forEach  (a => {
-          a.addEventListener('click', event => {
-            event.preventDefault();
-            if (trackVisit()) {
-              showSpinner();
-              window.setTimeout(() => { document.location = a.href }, 1500);
-            } else {
-              document.location = a.href;
-            }
-        });
+        var handler = linkClickedHandler(a);
+        a.addEventListener('click', handler);
+        decline_button.addEventListener('click', event => {
+          a.removeEventListener('click', handler);
+        })
       });
     </script>
     <!-- Piwik -->
