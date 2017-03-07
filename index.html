@@ -285,10 +285,17 @@
           }
       }
 
+      // Return
+      // * true if iframe was just added
+      // * false if the iframe was already present
       function trackVisit() {
+        var node_id = 'tracker-iframe';
+        if (document.getElementById(node_id))
+          return false;
         var iframe_node = document.createElement('iframe');
         var axel = Math.random() + "";
         var a = axel * 10000000000000;
+        iframe_node.setAttribute('id',node_id);
         iframe_node.setAttribute('src', 'https://2953234.fls.doubleclick.net/activityi;src=2953234;type=SIG-M0;cat=2017-00;dc_lat=;d' +
           'c_rdid=;tag_for_child_directed_treatment=;ord=1;num=' + a +
           '?');
@@ -300,7 +307,7 @@
         var parent_node = document.getElementById('cookie-holder');
         parent_node.appendChild(iframe_node);
 
-        removeBanner();
+        return true;
       }
 
       function showSpinner() {
@@ -312,14 +319,22 @@
         // TODO remove event handler
       }
 
+      function acceptCookie() {
+        trackVisit();
+        removeBanner();
+      }
+
       document.querySelector('#decline-cookie').addEventListener('click', declineCookie);
-      document.querySelector('#accept-cookie').addEventListener('click', trackVisit);
+      document.querySelector('#accept-cookie').addEventListener('click', acceptCookie);
       document.querySelectorAll('a').forEach  (a => {
           a.addEventListener('click', event => {
             event.preventDefault();
-            trackVisit();
-            showSpinner();
-            window.setTimeout(() => { document.location = a.href }, 1500);
+            if (trackVisit()) {
+              showSpinner();
+              window.setTimeout(() => { document.location = a.href }, 1500);
+            } else {
+              document.location = a.href;
+            }
         });
       });
     </script>
