@@ -26,7 +26,7 @@ document.querySelectorAll('a').forEach(a => {
         window.setTimeout(() => { document.location = a.href }, 1500)
         }
     }
-) 
+)
 ```
 
 ### Envoi de la configuration NGINX
