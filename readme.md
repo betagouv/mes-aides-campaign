@@ -28,3 +28,8 @@ document.querySelectorAll('a').forEach(a => {
     }
 ) 
 ```
+
+### Mise à jour des fichiers statiques
+
+rsync -r --exclude=*.conf --exclude=readme.md . root@mes-aides.gouv.fr:/var/tmp/simuler/
+
