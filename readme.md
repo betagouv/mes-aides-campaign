@@ -31,5 +31,5 @@ document.querySelectorAll('a').forEach(a => {
 
 ### Mise à jour des fichiers statiques
 
-rsync -r --exclude=*.conf --exclude=readme.md . root@mes-aides.gouv.fr:/var/tmp/simuler/
+rsync -r --exclude=*.conf --exclude=readme.md --exclude=.git --exclude=.DS_Store . root@mes-aides.gouv.fr:/var/tmp/simuler/
 
