@@ -1,0 +1,25 @@
+#feedback {
+    border-top: 1px solid #DDD;
+    margin-top: 2em;
+    padding-top: 2em;
+    margin-bottom: 4em;
+}
+
+#feedback ul {
+    margin-left: 0;
+    padding-left: 0;
+    list-style-type: circle;
+}
+
+#error p {
+    font-weight: bold;
+}
+
+#error small {
+    display: block;
+    margin-top: 1em;
+}
+
+#error small, #error small pre {
+    font-size: 80%;
+}
