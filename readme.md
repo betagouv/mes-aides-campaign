@@ -40,3 +40,6 @@ ssh root@mes-aides.gouv.fr "service nginx reload"
 
 rsync -r --exclude=*.conf --exclude=readme.md --exclude=.git --exclude=.DS_Store . root@mes-aides.gouv.fr:/var/tmp/simuler/
 
+### Initial SSL certificate request via Certbox
+
+```./certbot-auto certonly --webroot -w /var/tmp/simuler/ -d simuler.mes-aides.gouv.fr```
