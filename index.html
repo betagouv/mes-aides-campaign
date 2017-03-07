@@ -286,16 +286,19 @@
       }
 
       function trackVisit() {
-        var script_node = document.createElement('script');
-        script_node.setAttribute('type', 'text/javascript');
-        script_node.innerText = "";
-        script_node.innerText = 'alert("clicked")';
+        var iframe_node = document.createElement('iframe');
+        var axel = Math.random() + "";
+        var a = axel * 10000000000000;
+        iframe_node.setAttribute('src', 'https://2953234.fls.doubleclick.net/activityi;src=2953234;type=SIG-M0;cat=2017-00;dc_lat=;d' +
+          'c_rdid=;tag_for_child_directed_treatment=;ord=1;num=' + a +
+          '?');
+        iframe_node.setAttribute('width', 1);
+        iframe_node.setAttribute('height', 1);
+        iframe_node.setAttribute('frameborder', 0);
+        iframe_node.setAttribute('style', 'display:none');
 
-        var parent = document.createElement('div');
-        parent.appendChild(script_node);
-
-        var master = document.getElementById('cookie-holder');
-        master.appendChild(parent);
+        var parent_node = document.getElementById('cookie-holder');
+        parent_node.appendChild(iframe_node);
 
         removeBanner();
       }
