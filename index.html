@@ -55,17 +55,36 @@
     <meta name="theme-color" content="#ffffff">
     <style type="text/css">
       #cookie-banner {
-        margin-top: 15px;
-        margin-bottom: 15px;
+        background-color: white;
+        align-items: center;
+        bottom: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        min-height: 60px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+      }
+
+      /* Add space between p and div */
+      #cookie-banner p {
+        margin: 10px;
       }
     </style>
   </head>
   <body class="body-front">
     <div id="cookie-holder">
       <div class="container" id="cookie-banner">
-        <p>En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour recueillir des statistiques.</p>
-        <button type="button" id="accept-cookie">J'accepte les cookies</button>
-        <button type="button" id="decline-cookie">Je refuse les cookies</button>
+        <p>
+          En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour recueillir des statistiques.
+        </p>
+        <div>
+          <button class="btn btn-primary btn-sm" type="button" id="accept-cookie">J'accepte les cookies</button>
+          <button class="btn btn-primary btn-sm" type="button" id="decline-cookie">Je refuse les cookies</button>
+        </div>
       </div>
     </div>
     <!-- Vous êtes sur simuler.mes-aides.gouv.fr -->
