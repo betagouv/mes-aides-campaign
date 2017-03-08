@@ -280,8 +280,8 @@
     <script type="text/javascript">
       function removeBanner() {
         var banner = document.querySelector('#cookie-banner');
-          if(banner) {
-            banner.remove();
+          if(banner && banner.parentNode) {
+            banner.parentNode.removeChild(banner);
           }
       }
 
