@@ -320,25 +320,25 @@
       }
 
       function linkClickedHandler(a) {
-        return event => {
+        return function(event) {
           event.preventDefault();
           if (trackVisit()) {
             showSpinner();
-            window.setTimeout(() => { document.location = a.href }, 1500);
+            window.setTimeout(function() { document.location = a.href }, 1500);
           } else {
             document.location = a.href;
           }
         };
       }
 
-      const decline_button = document.querySelector('#decline-cookie');
+      var decline_button = document.querySelector('#decline-cookie');
 
       decline_button.addEventListener('click', removeBanner);
       document.querySelector('#accept-cookie').addEventListener('click', acceptCookie);
-      document.querySelectorAll('a').forEach  (a => {
+      document.querySelectorAll('a').forEach(function(a) {
         var handler = linkClickedHandler(a);
         a.addEventListener('click', handler);
-        decline_button.addEventListener('click', event => {
+        decline_button.addEventListener('click', function(event) {
           a.removeEventListener('click', handler);
         })
       });
