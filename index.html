@@ -352,13 +352,13 @@
       (function() {
       var incompatibleBrowser = window.incompatibleBrowser;
       if (incompatibleBrowser) {
-        _paq.push(['trackPageView']);  // for others, will be done through angulartics
         _paq.push(['trackEvent', 'incompatibleBrowser', true]);
       }
       var u='https://stats.data.gouv.fr/';
       _paq.push(['setTrackerUrl', u+'piwik.php']);
       _paq.push(['setSiteId', '9']);
-      _paq.push(['setCustomUrl', document.URL + '&pk_campaign=communication-nationale&pk_kwd=simuler']);
+      _paq.push(['setCustomUrl', 'https://mes-aides.gouv.fr/?pk_campaign=communication-nationale&pk_kwd=simuler']);
+      _paq.push(['trackPageView']);
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
       g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
       })();
