@@ -42,7 +42,7 @@ document.querySelectorAll('a').forEach(a => {
 ### Envoi de la configuration NGINX
 
 ```
-scp simuler.conf root@mes-aides.gouv.fr:/etc/nginx/conf.d/
+scp mes-aides-campaign.conf root@mes-aides.gouv.fr:/etc/nginx/conf.d/
 ssh root@mes-aides.gouv.fr "service nginx reload"
 ```
 
