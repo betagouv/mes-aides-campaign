@@ -333,6 +333,9 @@
       }
 
       function acceptCookie() {
+        if (window.localStorage && window.localStorage.setItem) {
+          window.localStorage.setItem('cookie-accepted', 'true');
+        }
         trackVisit();
         removeBanner();
       }
@@ -349,17 +352,22 @@
         };
       }
 
-      var decline_button = document.querySelector('#decline-cookie');
+      if (window.localStorage && window.localStorage.getItem &&
+        window.localStorage.getItem('cookie-accepted')) {
+        acceptCookie();
+      } else {
+        var decline_button = document.querySelector('#decline-cookie');
 
-      decline_button.addEventListener('click', removeBanner);
-      document.querySelector('#accept-cookie').addEventListener('click', acceptCookie);
-      [].forEach.call(document.querySelectorAll('a'), function(a) {
-        var handler = linkClickedHandler(a);
-        a.addEventListener('click', handler);
-        decline_button.addEventListener('click', function(event) {
-          a.removeEventListener('click', handler);
-        })
-      });
+        decline_button.addEventListener('click', removeBanner);
+        document.querySelector('#accept-cookie').addEventListener('click', acceptCookie);
+        [].forEach.call(document.querySelectorAll('a'), function(a) {
+          var handler = linkClickedHandler(a);
+          a.addEventListener('click', handler);
+          decline_button.addEventListener('click', function(event) {
+            a.removeEventListener('click', handler);
+          })
+        });
+      }
     </script>
     <!-- Piwik -->
     <script type="text/javascript">
