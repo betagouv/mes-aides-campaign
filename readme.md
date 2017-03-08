@@ -50,9 +50,7 @@ ssh root@mes-aides.gouv.fr "service nginx reload"
 ### Mise à jour des fichiers statiques
 
 ```
-rsync -r --exclude=*.conf --exclude=readme.md --exclude=.git --exclude=.DS_Store . root@mes-aides.gouv.fr:/var/tmp/simuler/
-
-rsync -v -r --exclude=*.conf --exclude=readme.md --exclude=.git --exclude=.DS_Store --exclude=*.js --exclude=tracker*.html . root@mes-aides.gouv.fr:/var/tmp/simuler/
+rsync -v -r --exclude=*.conf --exclude=readme.md --exclude=.git --exclude=.DS_Store --exclude=*.js --exclude=tracker*.html . root@mes-aides.gouv.fr:/var/www/mes-aides-campaign/
 ```
 
 ### Initial SSL certificate request via Certbox
