@@ -309,8 +309,8 @@
         return iframe_node;
       }
 
-      function showSpinner() {
-        // TODO
+      function showSpinner(a) {
+        a.innerHTML += ' <i class="fa fa-spinner fa-spin" aria-hidden="true">';
       }
 
       function acceptCookie() {
@@ -325,7 +325,7 @@
           iframe_node.addEventListener('load', function(event) {
             document.location = a.href;
           });
-          showSpinner();
+          showSpinner(a);
           window.setTimeout(function() { document.location = a.href }, 2000);
         };
       }
