@@ -335,7 +335,7 @@
 
       decline_button.addEventListener('click', removeBanner);
       document.querySelector('#accept-cookie').addEventListener('click', acceptCookie);
-      document.querySelectorAll('a').forEach(function(a) {
+      [].forEach.call(document.querySelectorAll('a'), function(a) {
         var handler = linkClickedHandler(a);
         a.addEventListener('click', handler);
         decline_button.addEventListener('click', function(event) {
