@@ -1,5 +1,7 @@
 # Version statique de mes-aides pour la campagne de communication
 
+Mes Aides a bénéficié d'une campagne nationale de communication en mars 2017. Dans ce cadre, nos partenaires ont souhaité ajouter des traceurs. Ces traceurs allant à l'encontre de nos CGU, nous avons créé une page statique d'atterissage pour les publicités nécessitant un traçage, en respectant les règles CNIL d'accord préalable. Toute activation du simulateur redirige vers le domaine principal, sur lequel aucun traceur tiers n'existe.
+
 ## Stratégie d'implémentation
 
 1. Dump statique de la page.
